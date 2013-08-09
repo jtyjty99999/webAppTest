@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <title>Hello World</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.2.1/pure-min.css">
+        <link rel="stylesheet" href="css/index.css">
+        <script src="http://localhost:9999/target/target-script-min.js#anonymous"></script>
+        <script src="js/zepto.min.js"></script>
+</head>
+
+<body>
+
+        <header class="pure-g header">
+
+            <div class="pure-u-1">
+                <div class="headerBtn leftBtn activeButton">
+                    <div class="icon7"></div>
+                </div>
+                <h2 class="title" id="title">详细资料</h2>
+                <div class="headerBtn rightBtn activeButton">
+                    <div class="icon6 confirm"></div>
+
+                </div>
+            </div>
+
+        </header>
+        <section id="wrap">
+        <!--  媒体组件               <div class="media">
+                    <a class="pull-left" href="#">
+                      <img class="media-object" data-src="holder.js/64x64" alt="64x64" style="width: 64px; height: 64px;" src="">
+                    </a>
+                    <div class="media-body">
+                      <h4 class="media-heading">sdljsjldlskjaklds</h4>
+                      aaaaaa
+                    </div>
+                </div> -->
+        <!-- 进度条
+                       <div class="progress progress-striped" style="margin-bottom: 9px;">
+                           <div class="progress-bar progress-bar-info" style="width:150px"></div>
+                       </div>
+       -->
+                <!--网格
+        <div class="pure-g">
+             <div class="pure-u-1-4"></div>
+             <div class="pure-u-1-4"></div>
+             <div class="pure-u-1-4"></div>
+             <div class="pure-u-1-4"></div>
+        </div>
+        -->
+        <!-- thumbnail
+                                   <div class="pure-g">
+                                <div class="pure-u-1-4">
+                                        <a href="#" class="thumbnail">
+                                            <img data-src="holder.js/100%x180" alt="100%x180" style="height: 45px; width: 100%; display: block;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALEAAAC0CAYAAADb5M12AAAE6UlEQVR4Xu3YwU5TARhEYVjxYjw2z8SelQZitWnopYNgZsznSmVo5z9zuGm4f35+/nHnDwLDBO5JPLye6m8ESEyEeQIknp/QASTmwDwBEs9P6AASc2CeAInnJ3QAiTkwT4DE8xM6gMQcmCdA4vkJHUBiDswTIPH8hA4gMQfmCZB4fkIHkJgD8wRIPD+hA0jMgXkCJJ6f0AEk5sA8ARLPT+gAEnNgngCJ5yd0AIk5ME+AxPMTOoDEHJgnQOL5CR1AYg7MEyDx/IQOIDEH5gmQeH5CB5CYA/MESDw/oQNIzIF5AiSen9ABJObAPAESz0/oABJzYJ4AiecndACJOTBPgMTzEzqAxByYJ0Di+QkdQGIOzBMg8fyEDiAxB+YJkHh+QgeQmAPzBEg8P6EDSMyBeQIknp/QASTmwDwBEs9P6AASc2CeAInnJ3QAiTkwT4DE8xM6gMQcmCdA4vkJHUBiDswTIPH8hA4gMQfmCZB4fkIHkJgD8wRIPD+hA0jMgXkCJJ6f0AEk5sA8ARLPT+gAEnNgngCJ5yd0AIk5ME+AxPMTOoDEHJgnQOL5CR1AYg7MEyDx/IQOIDEH5gmQeH5CB5CYA/MESDw/oQNIzIF5AiSen9ABJObAPAESz0/oABL/cuDp6entb4+Pj7+tOP3fpSavmaOv3aLVe+/3+n2Xr3vU5/xrt7zn/5oh8YU470lzLu3p6+cSXhPymjTnol57v3OhP3r//1XOW+8i8cGT+BzikaipxJeCnt7n8nWOflA+8563SrGWI/ENEqcCn/IPDw93Ly8vv504eupeinz693tP/ms/BGvyfVVfEn+DxCfJziW+/Px69Bn8lo8snsR/fgRI/E0Sf/S0JPFXPYfv7kj8TRK/SupJ/HWiHr0SiT/4tdbfPFGvfSb+7K/Rjr7v3+jS+S4k7txFq4AAiQNYop0ESNy5i1YBARIHsEQ7CZC4cxetAgIkDmCJdhIgcecuWgUESBzAEu0kQOLOXbQKCJA4gCXaSYDEnbtoFRAgcQBLtJMAiTt30SogQOIAlmgnARJ37qJVQIDEASzRTgIk7txFq4AAiQNYop0ESNy5i1YBARIHsEQ7CZC4cxetAgIkDmCJdhIgcecuWgUESBzAEu0kQOLOXbQKCJA4gCXaSYDEnbtoFRAgcQBLtJMAiTt30SogQOIAlmgnARJ37qJVQIDEASzRTgIk7txFq4AAiQNYop0ESNy5i1YBARIHsEQ7CZC4cxetAgIkDmCJdhIgcecuWgUESBzAEu0kQOLOXbQKCJA4gCXaSYDEnbtoFRAgcQBLtJMAiTt30SogQOIAlmgnARJ37qJVQIDEASzRTgIk7txFq4AAiQNYop0ESNy5i1YBARIHsEQ7CZC4cxetAgIkDmCJdhIgcecuWgUESBzAEu0kQOLOXbQKCJA4gCXaSYDEnbtoFRAgcQBLtJMAiTt30SogQOIAlmgnARJ37qJVQIDEASzRTgIk7txFq4AAiQNYop0ESNy5i1YBARIHsEQ7CZC4cxetAgIkDmCJdhIgcecuWgUESBzAEu0kQOLOXbQKCJA4gCXaSYDEnbtoFRAgcQBLtJMAiTt30SogQOIAlmgnARJ37qJVQIDEASzRTgIk7txFq4AAiQNYop0ESNy5i1YBARIHsEQ7CZC4cxetAgIkDmCJdhL4CdyRfDZqA7KkAAAAAElFTkSuQmCC">
+                                        </a>
+                                </div>
+                               <div class="pure-u-1-4">
+                                   <a href="#" class="thumbnail">
+                                       <img data-src="holder.js/100%x180" alt="100%x180" style="height: 45px; width: 100%; display: block;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALEAAAC0CAYAAADb5M12AAAE6UlEQVR4Xu3YwU5TARhEYVjxYjw2z8SelQZitWnopYNgZsznSmVo5z9zuGm4f35+/nHnDwLDBO5JPLye6m8ESEyEeQIknp/QASTmwDwBEs9P6AASc2CeAInnJ3QAiTkwT4DE8xM6gMQcmCdA4vkJHUBiDswTIPH8hA4gMQfmCZB4fkIHkJgD8wRIPD+hA0jMgXkCJJ6f0AEk5sA8ARLPT+gAEnNgngCJ5yd0AIk5ME+AxPMTOoDEHJgnQOL5CR1AYg7MEyDx/IQOIDEH5gmQeH5CB5CYA/MESDw/oQNIzIF5AiSen9ABJObAPAESz0/oABJzYJ4AiecndACJOTBPgMTzEzqAxByYJ0Di+QkdQGIOzBMg8fyEDiAxB+YJkHh+QgeQmAPzBEg8P6EDSMyBeQIknp/QASTmwDwBEs9P6AASc2CeAInnJ3QAiTkwT4DE8xM6gMQcmCdA4vkJHUBiDswTIPH8hA4gMQfmCZB4fkIHkJgD8wRIPD+hA0jMgXkCJJ6f0AEk5sA8ARLPT+gAEnNgngCJ5yd0AIk5ME+AxPMTOoDEHJgnQOL5CR1AYg7MEyDx/IQOIDEH5gmQeH5CB5CYA/MESDw/oQNIzIF5AiSen9ABJObAPAESz0/oABL/cuDp6entb4+Pj7+tOP3fpSavmaOv3aLVe+/3+n2Xr3vU5/xrt7zn/5oh8YU470lzLu3p6+cSXhPymjTnol57v3OhP3r//1XOW+8i8cGT+BzikaipxJeCnt7n8nWOflA+8563SrGWI/ENEqcCn/IPDw93Ly8vv504eupeinz693tP/ms/BGvyfVVfEn+DxCfJziW+/Px69Bn8lo8snsR/fgRI/E0Sf/S0JPFXPYfv7kj8TRK/SupJ/HWiHr0SiT/4tdbfPFGvfSb+7K/Rjr7v3+jS+S4k7txFq4AAiQNYop0ESNy5i1YBARIHsEQ7CZC4cxetAgIkDmCJdhIgcecuWgUESBzAEu0kQOLOXbQKCJA4gCXaSYDEnbtoFRAgcQBLtJMAiTt30SogQOIAlmgnARJ37qJVQIDEASzRTgIk7txFq4AAiQNYop0ESNy5i1YBARIHsEQ7CZC4cxetAgIkDmCJdhIgcecuWgUESBzAEu0kQOLOXbQKCJA4gCXaSYDEnbtoFRAgcQBLtJMAiTt30SogQOIAlmgnARJ37qJVQIDEASzRTgIk7txFq4AAiQNYop0ESNy5i1YBARIHsEQ7CZC4cxetAgIkDmCJdhIgcecuWgUESBzAEu0kQOLOXbQKCJA4gCXaSYDEnbtoFRAgcQBLtJMAiTt30SogQOIAlmgnARJ37qJVQIDEASzRTgIk7txFq4AAiQNYop0ESNy5i1YBARIHsEQ7CZC4cxetAgIkDmCJdhIgcecuWgUESBzAEu0kQOLOXbQKCJA4gCXaSYDEnbtoFRAgcQBLtJMAiTt30SogQOIAlmgnARJ37qJVQIDEASzRTgIk7txFq4AAiQNYop0ESNy5i1YBARIHsEQ7CZC4cxetAgIkDmCJdhIgcecuWgUESBzAEu0kQOLOXbQKCJA4gCXaSYDEnbtoFRAgcQBLtJMAiTt30SogQOIAlmgnARJ37qJVQIDEASzRTgIk7txFq4AAiQNYop0ESNy5i1YBARIHsEQ7CZC4cxetAgIkDmCJdhL4CdyRfDZqA7KkAAAAAElFTkSuQmCC">
+                                   </a>
+                               </div>
+                               <div class="pure-u-1-4">
+                                   <a href="#" class="thumbnail">
+                                       <img data-src="holder.js/100%x180" alt="100%x180" style="height: 45px; width: 100%; display: block;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALEAAAC0CAYAAADb5M12AAAE6UlEQVR4Xu3YwU5TARhEYVjxYjw2z8SelQZitWnopYNgZsznSmVo5z9zuGm4f35+/nHnDwLDBO5JPLye6m8ESEyEeQIknp/QASTmwDwBEs9P6AASc2CeAInnJ3QAiTkwT4DE8xM6gMQcmCdA4vkJHUBiDswTIPH8hA4gMQfmCZB4fkIHkJgD8wRIPD+hA0jMgXkCJJ6f0AEk5sA8ARLPT+gAEnNgngCJ5yd0AIk5ME+AxPMTOoDEHJgnQOL5CR1AYg7MEyDx/IQOIDEH5gmQeH5CB5CYA/MESDw/oQNIzIF5AiSen9ABJObAPAESz0/oABJzYJ4AiecndACJOTBPgMTzEzqAxByYJ0Di+QkdQGIOzBMg8fyEDiAxB+YJkHh+QgeQmAPzBEg8P6EDSMyBeQIknp/QASTmwDwBEs9P6AASc2CeAInnJ3QAiTkwT4DE8xM6gMQcmCdA4vkJHUBiDswTIPH8hA4gMQfmCZB4fkIHkJgD8wRIPD+hA0jMgXkCJJ6f0AEk5sA8ARLPT+gAEnNgngCJ5yd0AIk5ME+AxPMTOoDEHJgnQOL5CR1AYg7MEyDx/IQOIDEH5gmQeH5CB5CYA/MESDw/oQNIzIF5AiSen9ABJObAPAESz0/oABL/cuDp6entb4+Pj7+tOP3fpSavmaOv3aLVe+/3+n2Xr3vU5/xrt7zn/5oh8YU470lzLu3p6+cSXhPymjTnol57v3OhP3r//1XOW+8i8cGT+BzikaipxJeCnt7n8nWOflA+8563SrGWI/ENEqcCn/IPDw93Ly8vv504eupeinz693tP/ms/BGvyfVVfEn+DxCfJziW+/Px69Bn8lo8snsR/fgRI/E0Sf/S0JPFXPYfv7kj8TRK/SupJ/HWiHr0SiT/4tdbfPFGvfSb+7K/Rjr7v3+jS+S4k7txFq4AAiQNYop0ESNy5i1YBARIHsEQ7CZC4cxetAgIkDmCJdhIgcecuWgUESBzAEu0kQOLOXbQKCJA4gCXaSYDEnbtoFRAgcQBLtJMAiTt30SogQOIAlmgnARJ37qJVQIDEASzRTgIk7txFq4AAiQNYop0ESNy5i1YBARIHsEQ7CZC4cxetAgIkDmCJdhIgcecuWgUESBzAEu0kQOLOXbQKCJA4gCXaSYDEnbtoFRAgcQBLtJMAiTt30SogQOIAlmgnARJ37qJVQIDEASzRTgIk7txFq4AAiQNYop0ESNy5i1YBARIHsEQ7CZC4cxetAgIkDmCJdhIgcecuWgUESBzAEu0kQOLOXbQKCJA4gCXaSYDEnbtoFRAgcQBLtJMAiTt30SogQOIAlmgnARJ37qJVQIDEASzRTgIk7txFq4AAiQNYop0ESNy5i1YBARIHsEQ7CZC4cxetAgIkDmCJdhIgcecuWgUESBzAEu0kQOLOXbQKCJA4gCXaSYDEnbtoFRAgcQBLtJMAiTt30SogQOIAlmgnARJ37qJVQIDEASzRTgIk7txFq4AAiQNYop0ESNy5i1YBARIHsEQ7CZC4cxetAgIkDmCJdhIgcecuWgUESBzAEu0kQOLOXbQKCJA4gCXaSYDEnbtoFRAgcQBLtJMAiTt30SogQOIAlmgnARJ37qJVQIDEASzRTgIk7txFq4AAiQNYop0ESNy5i1YBARIHsEQ7CZC4cxetAgIkDmCJdhL4CdyRfDZqA7KkAAAAAElFTkSuQmCC">
+                                   </a>
+                               </div>
+                               <div class="pure-u-1-4">
+                                   <a href="#" class="thumbnail">
+                                       <img data-src="holder.js/100%x180" alt="100%x180" style="height: 45px; width: 100%; display: block;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALEAAAC0CAYAAADb5M12AAAE6UlEQVR4Xu3YwU5TARhEYVjxYjw2z8SelQZitWnopYNgZsznSmVo5z9zuGm4f35+/nHnDwLDBO5JPLye6m8ESEyEeQIknp/QASTmwDwBEs9P6AASc2CeAInnJ3QAiTkwT4DE8xM6gMQcmCdA4vkJHUBiDswTIPH8hA4gMQfmCZB4fkIHkJgD8wRIPD+hA0jMgXkCJJ6f0AEk5sA8ARLPT+gAEnNgngCJ5yd0AIk5ME+AxPMTOoDEHJgnQOL5CR1AYg7MEyDx/IQOIDEH5gmQeH5CB5CYA/MESDw/oQNIzIF5AiSen9ABJObAPAESz0/oABJzYJ4AiecndACJOTBPgMTzEzqAxByYJ0Di+QkdQGIOzBMg8fyEDiAxB+YJkHh+QgeQmAPzBEg8P6EDSMyBeQIknp/QASTmwDwBEs9P6AASc2CeAInnJ3QAiTkwT4DE8xM6gMQcmCdA4vkJHUBiDswTIPH8hA4gMQfmCZB4fkIHkJgD8wRIPD+hA0jMgXkCJJ6f0AEk5sA8ARLPT+gAEnNgngCJ5yd0AIk5ME+AxPMTOoDEHJgnQOL5CR1AYg7MEyDx/IQOIDEH5gmQeH5CB5CYA/MESDw/oQNIzIF5AiSen9ABJObAPAESz0/oABL/cuDp6entb4+Pj7+tOP3fpSavmaOv3aLVe+/3+n2Xr3vU5/xrt7zn/5oh8YU470lzLu3p6+cSXhPymjTnol57v3OhP3r//1XOW+8i8cGT+BzikaipxJeCnt7n8nWOflA+8563SrGWI/ENEqcCn/IPDw93Ly8vv504eupeinz693tP/ms/BGvyfVVfEn+DxCfJziW+/Px69Bn8lo8snsR/fgRI/E0Sf/S0JPFXPYfv7kj8TRK/SupJ/HWiHr0SiT/4tdbfPFGvfSb+7K/Rjr7v3+jS+S4k7txFq4AAiQNYop0ESNy5i1YBARIHsEQ7CZC4cxetAgIkDmCJdhIgcecuWgUESBzAEu0kQOLOXbQKCJA4gCXaSYDEnbtoFRAgcQBLtJMAiTt30SogQOIAlmgnARJ37qJVQIDEASzRTgIk7txFq4AAiQNYop0ESNy5i1YBARIHsEQ7CZC4cxetAgIkDmCJdhIgcecuWgUESBzAEu0kQOLOXbQKCJA4gCXaSYDEnbtoFRAgcQBLtJMAiTt30SogQOIAlmgnARJ37qJVQIDEASzRTgIk7txFq4AAiQNYop0ESNy5i1YBARIHsEQ7CZC4cxetAgIkDmCJdhIgcecuWgUESBzAEu0kQOLOXbQKCJA4gCXaSYDEnbtoFRAgcQBLtJMAiTt30SogQOIAlmgnARJ37qJVQIDEASzRTgIk7txFq4AAiQNYop0ESNy5i1YBARIHsEQ7CZC4cxetAgIkDmCJdhIgcecuWgUESBzAEu0kQOLOXbQKCJA4gCXaSYDEnbtoFRAgcQBLtJMAiTt30SogQOIAlmgnARJ37qJVQIDEASzRTgIk7txFq4AAiQNYop0ESNy5i1YBARIHsEQ7CZC4cxetAgIkDmCJdhIgcecuWgUESBzAEu0kQOLOXbQKCJA4gCXaSYDEnbtoFRAgcQBLtJMAiTt30SogQOIAlmgnARJ37qJVQIDEASzRTgIk7txFq4AAiQNYop0ESNy5i1YBARIHsEQ7CZC4cxetAgIkDmCJdhL4CdyRfDZqA7KkAAAAAElFTkSuQmCC">
+                                   </a>
+                               </div>
+                           </div>
+
+
+        -->
+        <!--  -->
+        <article class="pure-g content none" data-role = "page" data-pageName= "详细资料">
+            <div class="pure-u-1">
+                <h3>基本信息</h3>
+                <table class="pure-table pure-table-horizontal userInfo">
+
+                    <tbody>
+                    <tr>
+                        <td class="infoName">姓名：</td>
+                        <td class="edit" editing="false" param ='name' >${name}</td>
+                    </tr>
+
+                    <tr>
+                        <td class="infoName">性别：</td>
+                        <td class="edit" editing="false" param ='gender' >${gender}</td>
+                    </tr>
+
+                    <tr>
+                        <td class="infoName">昵称：</td>
+                        <td class="edit" editing="false" param ='nickname' >${nickname}</td>
+                    </tr>
+
+                    <tr>
+                        <td class="infoName">生日：</td>
+                        <td class="edit" editing="false" editType="date" param ='birthday' >${birthday}</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <h3>驾驶信息</h3>
+                <table class="pure-table pure-table-horizontal userInfo">
+
+                    <tbody>
+                    <tr>
+                        <td class="infoName">主驾人：</td>
+                        <td class="edit" editing="false" param ='name'>${name}</td>
+                    </tr>
+
+                    <tr>
+                        <td class="infoName">驾照号：</td>
+                        <td class="edit" editing="false" param ='drivingLicense'>${drivingLicense}</td>
+                    </tr>
+
+                    </tbody>
+                </table>
+                <h3>联系信息</h3>
+                <table class="pure-table pure-table-horizontal userInfo">
+
+                    <tbody>
+                    <tr>
+                        <td class="infoName">手机号：</td>
+                        <td class="edit" editing="false"  editType="telephone" param ='mobile'>${mobile}</td>
+                    </tr>
+
+                    <tr>
+                        <td class="infoName">邮箱：</td>
+                        <td class="edit" editing="false"  editType="email" param ='userEmail'>${userEmail}</td>
+                    </tr>
+                    <tr>
+                        <td class="infoName">语镜号：</td>
+                        <td>${mirrtalkNumber}</td>
+                    </tr>
+                    <tr>
+                        <td class="infoName">家庭住址：</td>
+                        <td class="edit" editing="false" param ='homeAddress'>${homeAddress}</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <h3>车辆信息</h3>
+                <table class="pure-table pure-table-horizontal userInfo">
+
+                    <tbody>
+                    <tr>
+                        <td class="infoName">车牌号：</td>
+                        <td class="edit" editing="false" param ='plateNumber'>${plateNumber}</td>
+                    </tr>
+
+                    <tr>
+                        <td class="infoName">发动机号：</td>
+                        <td class="edit" editing="false" param ='engineNumber'>${engineNumber}</td>
+                    </tr>
+                    <tr>
+                        <td class="infoName">车辆识别码：</td>
+                        <td class="edit" editing="false" param ='VIN'>${VIN}</td>
+                    </tr>
+                    <tr>
+                        <td class="infoName">车主姓名：</td>
+                        <td class="edit" editing="false" param ='name'>${name}</td>
+                    </tr>
+                    <tr>
+                        <td class="infoName">承保公司：</td>
+                        <td class="edit" editing="false" param ='insuranceCompany'>${insuranceCompany}</td>
+                    </tr>
+                    <tr>
+                        <td class="infoName">到期日期：</td>
+                        <td class="edit" editing="false"  editType="date" param ='insurancePeriod'>${insurancePeriod}</td>
+                    </tr>
+                    <tr>
+                        <td class="infoName">品牌型号：</td>
+                        <td class="edit" editing="false" param ='carBrand'>${carBrand}</td>
+                    </tr>
+                    <tr>
+                        <td class="infoName">购买日期：</td>
+                        <td class="edit" editing="false"  editType="date" param ='yearOfPurchase'>${yearOfPurchase}</td>
+                    </tr>
+                    <tr>
+                        <td class="infoName">车辆颜色：</td>
+                        <td class="edit" editing="false" param ='carColor'>${carColor}</td>
+                    </tr>
+                    </tbody>
+                </table>
+
+           </div>
+
+        </article>
+
+
+        <article class="pure-g content none" data-role = "page" data-pageName= "积分等级">
+            <div class="pure-u-1">
+                <h2 class="center">我的等级:道客 <b>一</b>级</h2>
+                <h2 class="center">全国排名: <b>8392</b></h2>
+                <div class="progress progress-striped" style="margin-bottom: 9px;">
+                    <div class="progress-bar progress-bar-info" style="width:150px"></div>
+                </div>
+                <h4 class="center">距离下一等级还有: <b>97555</b></h4>
+                <div class="media roundBorder jumper" data-target ="赚积分">
+                    <a class="pull-left icon15" href="#">
+                    </a>
+                    <div class="media-body">
+                        <h4 class="media-heading">您的积分</h4>
+                        通过行驶，互动，任务获取积分，快看看怎么赚积分吧！
+                    </div>
+                </div>
+                <div class="media roundBorder jumper" data-target ="道客成长">
+                    <a class="pull-left icon16" href="#">
+
+                    </a>
+                    <div class="media-body">
+                        <h4 class="media-heading">您的成长值</h4>
+                        坚持使用，就能有不断的成长，等级也会随着你的成长值步步高升，不同的等级惊喜也不同
+                    </div>
+                </div>
+
+            </div>
+
+
+
+        </article>
+
+
+        <article class="pure-g content none" data-role = "page" data-pageName= "道客成长">
+            <div class="pure-u-1">
+                <h3>道客成长</h3>
+                <p>随着你的连续使用会不断的积累成长值，成长值越高等级也越高，您的分享影响力会更大，并且可以获得更多的礼品</p>
+
+                <div class="media">
+                    <a class="pull-left icon15" href="#">
+                    </a>
+                    <div class="media-body">
+                        <h4 class="media-heading">道客一级</h4>
+                        坚持使用，就能有不断的成长，等级也会随着你的成长值步步高升，不同的等级惊喜也不同
+                    </div>
+                </div>
+                <div class="media">
+                    <a class="pull-left icon16" href="#">
+
+                    </a>
+                    <div class="media-body">
+                        <h4 class="media-heading">道客一级</h4>
+                        坚持使用，就能有不断的成长，等级也会随着你的成长值步步高升，不同的等级惊喜也不同
+                    </div>
+                </div>
+                <div class="media">
+                    <a class="pull-left icon16" href="#">
+
+                    </a>
+                    <div class="media-body">
+                        <h4 class="media-heading">道客一级</h4>
+                        坚持使用，就能有不断的成长，等级也会随着你的成长值步步高升，不同的等级惊喜也不同
+                    </div>
+                </div>
+                <div class="media">
+                    <a class="pull-left icon16" href="#">
+
+                    </a>
+                    <div class="media-body">
+                        <h4 class="media-heading">道客一级</h4>
+                        坚持使用，就能有不断的成长，等级也会随着你的成长值步步高升，不同的等级惊喜也不同
+                    </div>
+                </div>
+                <div class="media">
+                    <a class="pull-left icon16" href="#">
+
+                    </a>
+                    <div class="media-body">
+                        <h4 class="media-heading">道客一级</h4>
+                        坚持使用，就能有不断的成长，等级也会随着你的成长值步步高升，不同的等级惊喜也不同
+                    </div>
+                </div>
+            </div>
+
+
+
+        </article>
+
+
+
+        <article class="pure-g content none" data-role = "page" data-pageName= "我的勋章">
+            <div class="pure-u-1">
+                <h3>已获得</h3>
+            </div>
+
+
+            <div class="pure-g">
+                <div class="pure-u-1-4">
+                    <a href="#" class="thumbnail">
+                        <img data-src="holder.js/100%x180" alt="100%x180" style="height: 45px; width: 100%; display: block;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALEAAAC0CAYAAADb5M12AAAE6UlEQVR4Xu3YwU5TARhEYVjxYjw2z8SelQZitWnopYNgZsznSmVo5z9zuGm4f35+/nHnDwLDBO5JPLye6m8ESEyEeQIknp/QASTmwDwBEs9P6AASc2CeAInnJ3QAiTkwT4DE8xM6gMQcmCdA4vkJHUBiDswTIPH8hA4gMQfmCZB4fkIHkJgD8wRIPD+hA0jMgXkCJJ6f0AEk5sA8ARLPT+gAEnNgngCJ5yd0AIk5ME+AxPMTOoDEHJgnQOL5CR1AYg7MEyDx/IQOIDEH5gmQeH5CB5CYA/MESDw/oQNIzIF5AiSen9ABJObAPAESz0/oABJzYJ4AiecndACJOTBPgMTzEzqAxByYJ0Di+QkdQGIOzBMg8fyEDiAxB+YJkHh+QgeQmAPzBEg8P6EDSMyBeQIknp/QASTmwDwBEs9P6AASc2CeAInnJ3QAiTkwT4DE8xM6gMQcmCdA4vkJHUBiDswTIPH8hA4gMQfmCZB4fkIHkJgD8wRIPD+hA0jMgXkCJJ6f0AEk5sA8ARLPT+gAEnNgngCJ5yd0AIk5ME+AxPMTOoDEHJgnQOL5CR1AYg7MEyDx/IQOIDEH5gmQeH5CB5CYA/MESDw/oQNIzIF5AiSen9ABJObAPAESz0/oABL/cuDp6entb4+Pj7+tOP3fpSavmaOv3aLVe+/3+n2Xr3vU5/xrt7zn/5oh8YU470lzLu3p6+cSXhPymjTnol57v3OhP3r//1XOW+8i8cGT+BzikaipxJeCnt7n8nWOflA+8563SrGWI/ENEqcCn/IPDw93Ly8vv504eupeinz693tP/ms/BGvyfVVfEn+DxCfJziW+/Px69Bn8lo8snsR/fgRI/E0Sf/S0JPFXPYfv7kj8TRK/SupJ/HWiHr0SiT/4tdbfPFGvfSb+7K/Rjr7v3+jS+S4k7txFq4AAiQNYop0ESNy5i1YBARIHsEQ7CZC4cxetAgIkDmCJdhIgcecuWgUESBzAEu0kQOLOXbQKCJA4gCXaSYDEnbtoFRAgcQBLtJMAiTt30SogQOIAlmgnARJ37qJVQIDEASzRTgIk7txFq4AAiQNYop0ESNy5i1YBARIHsEQ7CZC4cxetAgIkDmCJdhIgcecuWgUESBzAEu0kQOLOXbQKCJA4gCXaSYDEnbtoFRAgcQBLtJMAiTt30SogQOIAlmgnARJ37qJVQIDEASzRTgIk7txFq4AAiQNYop0ESNy5i1YBARIHsEQ7CZC4cxetAgIkDmCJdhIgcecuWgUESBzAEu0kQOLOXbQKCJA4gCXaSYDEnbtoFRAgcQBLtJMAiTt30SogQOIAlmgnARJ37qJVQIDEASzRTgIk7txFq4AAiQNYop0ESNy5i1YBARIHsEQ7CZC4cxetAgIkDmCJdhIgcecuWgUESBzAEu0kQOLOXbQKCJA4gCXaSYDEnbtoFRAgcQBLtJMAiTt30SogQOIAlmgnARJ37qJVQIDEASzRTgIk7txFq4AAiQNYop0ESNy5i1YBARIHsEQ7CZC4cxetAgIkDmCJdhIgcecuWgUESBzAEu0kQOLOXbQKCJA4gCXaSYDEnbtoFRAgcQBLtJMAiTt30SogQOIAlmgnARJ37qJVQIDEASzRTgIk7txFq4AAiQNYop0ESNy5i1YBARIHsEQ7CZC4cxetAgIkDmCJdhL4CdyRfDZqA7KkAAAAAElFTkSuQmCC">
+                    </a>
+                </div>
+                <div class="pure-u-1-4">
+                    <a href="#" class="thumbnail">
+                        <img data-src="holder.js/100%x180" alt="100%x180" style="height: 45px; width: 100%; display: block;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALEAAAC0CAYAAADb5M12AAAE6UlEQVR4Xu3YwU5TARhEYVjxYjw2z8SelQZitWnopYNgZsznSmVo5z9zuGm4f35+/nHnDwLDBO5JPLye6m8ESEyEeQIknp/QASTmwDwBEs9P6AASc2CeAInnJ3QAiTkwT4DE8xM6gMQcmCdA4vkJHUBiDswTIPH8hA4gMQfmCZB4fkIHkJgD8wRIPD+hA0jMgXkCJJ6f0AEk5sA8ARLPT+gAEnNgngCJ5yd0AIk5ME+AxPMTOoDEHJgnQOL5CR1AYg7MEyDx/IQOIDEH5gmQeH5CB5CYA/MESDw/oQNIzIF5AiSen9ABJObAPAESz0/oABJzYJ4AiecndACJOTBPgMTzEzqAxByYJ0Di+QkdQGIOzBMg8fyEDiAxB+YJkHh+QgeQmAPzBEg8P6EDSMyBeQIknp/QASTmwDwBEs9P6AASc2CeAInnJ3QAiTkwT4DE8xM6gMQcmCdA4vkJHUBiDswTIPH8hA4gMQfmCZB4fkIHkJgD8wRIPD+hA0jMgXkCJJ6f0AEk5sA8ARLPT+gAEnNgngCJ5yd0AIk5ME+AxPMTOoDEHJgnQOL5CR1AYg7MEyDx/IQOIDEH5gmQeH5CB5CYA/MESDw/oQNIzIF5AiSen9ABJObAPAESz0/oABL/cuDp6entb4+Pj7+tOP3fpSavmaOv3aLVe+/3+n2Xr3vU5/xrt7zn/5oh8YU470lzLu3p6+cSXhPymjTnol57v3OhP3r//1XOW+8i8cGT+BzikaipxJeCnt7n8nWOflA+8563SrGWI/ENEqcCn/IPDw93Ly8vv504eupeinz693tP/ms/BGvyfVVfEn+DxCfJziW+/Px69Bn8lo8snsR/fgRI/E0Sf/S0JPFXPYfv7kj8TRK/SupJ/HWiHr0SiT/4tdbfPFGvfSb+7K/Rjr7v3+jS+S4k7txFq4AAiQNYop0ESNy5i1YBARIHsEQ7CZC4cxetAgIkDmCJdhIgcecuWgUESBzAEu0kQOLOXbQKCJA4gCXaSYDEnbtoFRAgcQBLtJMAiTt30SogQOIAlmgnARJ37qJVQIDEASzRTgIk7txFq4AAiQNYop0ESNy5i1YBARIHsEQ7CZC4cxetAgIkDmCJdhIgcecuWgUESBzAEu0kQOLOXbQKCJA4gCXaSYDEnbtoFRAgcQBLtJMAiTt30SogQOIAlmgnARJ37qJVQIDEASzRTgIk7txFq4AAiQNYop0ESNy5i1YBARIHsEQ7CZC4cxetAgIkDmCJdhIgcecuWgUESBzAEu0kQOLOXbQKCJA4gCXaSYDEnbtoFRAgcQBLtJMAiTt30SogQOIAlmgnARJ37qJVQIDEASzRTgIk7txFq4AAiQNYop0ESNy5i1YBARIHsEQ7CZC4cxetAgIkDmCJdhIgcecuWgUESBzAEu0kQOLOXbQKCJA4gCXaSYDEnbtoFRAgcQBLtJMAiTt30SogQOIAlmgnARJ37qJVQIDEASzRTgIk7txFq4AAiQNYop0ESNy5i1YBARIHsEQ7CZC4cxetAgIkDmCJdhIgcecuWgUESBzAEu0kQOLOXbQKCJA4gCXaSYDEnbtoFRAgcQBLtJMAiTt30SogQOIAlmgnARJ37qJVQIDEASzRTgIk7txFq4AAiQNYop0ESNy5i1YBARIHsEQ7CZC4cxetAgIkDmCJdhL4CdyRfDZqA7KkAAAAAElFTkSuQmCC">
+                    </a>
+                </div>
+                <div class="pure-u-1-4">
+                    <a href="#" class="thumbnail">
+                        <img data-src="holder.js/100%x180" alt="100%x180" style="height: 45px; width: 100%; display: block;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALEAAAC0CAYAAADb5M12AAAE6UlEQVR4Xu3YwU5TARhEYVjxYjw2z8SelQZitWnopYNgZsznSmVo5z9zuGm4f35+/nHnDwLDBO5JPLye6m8ESEyEeQIknp/QASTmwDwBEs9P6AASc2CeAInnJ3QAiTkwT4DE8xM6gMQcmCdA4vkJHUBiDswTIPH8hA4gMQfmCZB4fkIHkJgD8wRIPD+hA0jMgXkCJJ6f0AEk5sA8ARLPT+gAEnNgngCJ5yd0AIk5ME+AxPMTOoDEHJgnQOL5CR1AYg7MEyDx/IQOIDEH5gmQeH5CB5CYA/MESDw/oQNIzIF5AiSen9ABJObAPAESz0/oABJzYJ4AiecndACJOTBPgMTzEzqAxByYJ0Di+QkdQGIOzBMg8fyEDiAxB+YJkHh+QgeQmAPzBEg8P6EDSMyBeQIknp/QASTmwDwBEs9P6AASc2CeAInnJ3QAiTkwT4DE8xM6gMQcmCdA4vkJHUBiDswTIPH8hA4gMQfmCZB4fkIHkJgD8wRIPD+hA0jMgXkCJJ6f0AEk5sA8ARLPT+gAEnNgngCJ5yd0AIk5ME+AxPMTOoDEHJgnQOL5CR1AYg7MEyDx/IQOIDEH5gmQeH5CB5CYA/MESDw/oQNIzIF5AiSen9ABJObAPAESz0/oABL/cuDp6entb4+Pj7+tOP3fpSavmaOv3aLVe+/3+n2Xr3vU5/xrt7zn/5oh8YU470lzLu3p6+cSXhPymjTnol57v3OhP3r//1XOW+8i8cGT+BzikaipxJeCnt7n8nWOflA+8563SrGWI/ENEqcCn/IPDw93Ly8vv504eupeinz693tP/ms/BGvyfVVfEn+DxCfJziW+/Px69Bn8lo8snsR/fgRI/E0Sf/S0JPFXPYfv7kj8TRK/SupJ/HWiHr0SiT/4tdbfPFGvfSb+7K/Rjr7v3+jS+S4k7txFq4AAiQNYop0ESNy5i1YBARIHsEQ7CZC4cxetAgIkDmCJdhIgcecuWgUESBzAEu0kQOLOXbQKCJA4gCXaSYDEnbtoFRAgcQBLtJMAiTt30SogQOIAlmgnARJ37qJVQIDEASzRTgIk7txFq4AAiQNYop0ESNy5i1YBARIHsEQ7CZC4cxetAgIkDmCJdhIgcecuWgUESBzAEu0kQOLOXbQKCJA4gCXaSYDEnbtoFRAgcQBLtJMAiTt30SogQOIAlmgnARJ37qJVQIDEASzRTgIk7txFq4AAiQNYop0ESNy5i1YBARIHsEQ7CZC4cxetAgIkDmCJdhIgcecuWgUESBzAEu0kQOLOXbQKCJA4gCXaSYDEnbtoFRAgcQBLtJMAiTt30SogQOIAlmgnARJ37qJVQIDEASzRTgIk7txFq4AAiQNYop0ESNy5i1YBARIHsEQ7CZC4cxetAgIkDmCJdhIgcecuWgUESBzAEu0kQOLOXbQKCJA4gCXaSYDEnbtoFRAgcQBLtJMAiTt30SogQOIAlmgnARJ37qJVQIDEASzRTgIk7txFq4AAiQNYop0ESNy5i1YBARIHsEQ7CZC4cxetAgIkDmCJdhIgcecuWgUESBzAEu0kQOLOXbQKCJA4gCXaSYDEnbtoFRAgcQBLtJMAiTt30SogQOIAlmgnARJ37qJVQIDEASzRTgIk7txFq4AAiQNYop0ESNy5i1YBARIHsEQ7CZC4cxetAgIkDmCJdhL4CdyRfDZqA7KkAAAAAElFTkSuQmCC">
+                    </a>
+                </div>
+                <div class="pure-u-1-4">
+                    <a href="#" class="thumbnail">
+                        <img data-src="holder.js/100%x180" alt="100%x180" style="height: 45px; width: 100%; display: block;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALEAAAC0CAYAAADb5M12AAAE6UlEQVR4Xu3YwU5TARhEYVjxYjw2z8SelQZitWnopYNgZsznSmVo5z9zuGm4f35+/nHnDwLDBO5JPLye6m8ESEyEeQIknp/QASTmwDwBEs9P6AASc2CeAInnJ3QAiTkwT4DE8xM6gMQcmCdA4vkJHUBiDswTIPH8hA4gMQfmCZB4fkIHkJgD8wRIPD+hA0jMgXkCJJ6f0AEk5sA8ARLPT+gAEnNgngCJ5yd0AIk5ME+AxPMTOoDEHJgnQOL5CR1AYg7MEyDx/IQOIDEH5gmQeH5CB5CYA/MESDw/oQNIzIF5AiSen9ABJObAPAESz0/oABJzYJ4AiecndACJOTBPgMTzEzqAxByYJ0Di+QkdQGIOzBMg8fyEDiAxB+YJkHh+QgeQmAPzBEg8P6EDSMyBeQIknp/QASTmwDwBEs9P6AASc2CeAInnJ3QAiTkwT4DE8xM6gMQcmCdA4vkJHUBiDswTIPH8hA4gMQfmCZB4fkIHkJgD8wRIPD+hA0jMgXkCJJ6f0AEk5sA8ARLPT+gAEnNgngCJ5yd0AIk5ME+AxPMTOoDEHJgnQOL5CR1AYg7MEyDx/IQOIDEH5gmQeH5CB5CYA/MESDw/oQNIzIF5AiSen9ABJObAPAESz0/oABL/cuDp6entb4+Pj7+tOP3fpSavmaOv3aLVe+/3+n2Xr3vU5/xrt7zn/5oh8YU470lzLu3p6+cSXhPymjTnol57v3OhP3r//1XOW+8i8cGT+BzikaipxJeCnt7n8nWOflA+8563SrGWI/ENEqcCn/IPDw93Ly8vv504eupeinz693tP/ms/BGvyfVVfEn+DxCfJziW+/Px69Bn8lo8snsR/fgRI/E0Sf/S0JPFXPYfv7kj8TRK/SupJ/HWiHr0SiT/4tdbfPFGvfSb+7K/Rjr7v3+jS+S4k7txFq4AAiQNYop0ESNy5i1YBARIHsEQ7CZC4cxetAgIkDmCJdhIgcecuWgUESBzAEu0kQOLOXbQKCJA4gCXaSYDEnbtoFRAgcQBLtJMAiTt30SogQOIAlmgnARJ37qJVQIDEASzRTgIk7txFq4AAiQNYop0ESNy5i1YBARIHsEQ7CZC4cxetAgIkDmCJdhIgcecuWgUESBzAEu0kQOLOXbQKCJA4gCXaSYDEnbtoFRAgcQBLtJMAiTt30SogQOIAlmgnARJ37qJVQIDEASzRTgIk7txFq4AAiQNYop0ESNy5i1YBARIHsEQ7CZC4cxetAgIkDmCJdhIgcecuWgUESBzAEu0kQOLOXbQKCJA4gCXaSYDEnbtoFRAgcQBLtJMAiTt30SogQOIAlmgnARJ37qJVQIDEASzRTgIk7txFq4AAiQNYop0ESNy5i1YBARIHsEQ7CZC4cxetAgIkDmCJdhIgcecuWgUESBzAEu0kQOLOXbQKCJA4gCXaSYDEnbtoFRAgcQBLtJMAiTt30SogQOIAlmgnARJ37qJVQIDEASzRTgIk7txFq4AAiQNYop0ESNy5i1YBARIHsEQ7CZC4cxetAgIkDmCJdhIgcecuWgUESBzAEu0kQOLOXbQKCJA4gCXaSYDEnbtoFRAgcQBLtJMAiTt30SogQOIAlmgnARJ37qJVQIDEASzRTgIk7txFq4AAiQNYop0ESNy5i1YBARIHsEQ7CZC4cxetAgIkDmCJdhL4CdyRfDZqA7KkAAAAAElFTkSuQmCC">
+                    </a>
+                </div>
+            </div>
+            <div class="pure-u-1 line">
+            </div>
+
+            <div class="pure-u-1">
+                <h3>全部</h3>
+            </div>
+            <div class="pure-g roundBorder" >
+                <div class ="pure-u-3-4">
+                    <div class="media mediaFix">
+                        <a class="pull-left icon15" href="#">
+                        </a>
+                        <div class="media-body">
+                            <h2 class="media-heading">完善资料勋章</h2>
+                            用户信息高于90%的道客
+                        </div>
+                    </div>
+                </div>
+                <div class="pure-u-1-4 centerBox">
+                    <div class="centerContent">
+                        <h3><b class="colored3">6666</b>人</h3>
+                        <h4>获得 </h4>
+                    </div>
+                    <div class="vam"></div>
+                </div>
+            </div>
+            <div class="pure-g roundBorder">
+                <div class="pure-u-3-4">
+                    <div class="media mediaFix">
+                        <a class="pull-left icon15" href="#">
+                        </a>
+                        <div class="media-body">
+                            <h2 class="media-heading">完善资料勋章</h2>
+                            用户信息高于90%的道客
+                        </div>
+                    </div>
+                </div>
+                <div class="pure-u-1-4 centerBox">
+                    <div class="centerContent">
+                        <h3><b class="colored3">6666</b>人</h3>
+                        <h4>获得 </h4>
+                    </div>
+                    <div class="vam"></div>
+                </div>
+            </div>
+            <div class="pure-g roundBorder">
+                <div class="pure-u-3-4">
+                    <div class="media mediaFix">
+                        <a class="pull-left icon15" href="#">
+                        </a>
+                        <div class="media-body">
+                            <h2 class="media-heading">完善资料勋章</h2>
+                            用户信息高于90%的道客
+                        </div>
+                    </div>
+                </div>
+                <div class="pure-u-1-4 centerBox">
+                    <div class="centerContent">
+                        <h3><b class="colored3">6666</b>人</h3>
+                        <h4>获得 </h4>
+                    </div>
+                    <div class="vam"></div>
+                </div>
+            </div>
+
+        </article>
+
+
+        <article class="pure-g content none" data-role = "page" data-pageName= "赚积分">
+            <div class="pure-u-1">
+                <h3>想获取更多积分？ <br>来试试这些任务奖励积分吧</h3>
+            </div>
+
+            <div class="pure-g roundBorder" >
+                <div class ="pure-u-3-4 centerBox">
+                    <div class="centerContent">
+                        <h3>开机奖励</h3>
+                        <h4>每天使用语镜，开机并登陆服务器</h4>
+                    </div>
+                    <div class="vam"></div>
+                </div>
+                <div class="pure-u-1-4 centerBox">
+                    <div class="centerContent">
+                        <h4>每日限2次</h4>
+                    </div>
+                    <div class="vam"></div>
+                </div>
+            </div>
+            <div class="pure-g roundBorder" >
+                <div class ="pure-u-3-4 centerBox">
+                    <div class="centerContent">
+                        <h3>开机奖励</h3>
+                        <h4>每天使用语镜，开机并登陆服务器</h4>
+                    </div>
+                    <div class="vam"></div>
+                </div>
+                <div class="pure-u-1-4 centerBox">
+                    <div class="centerContent">
+                        <h4>每日限2次</h4>
+                    </div>
+                    <div class="vam"></div>
+                </div>
+            </div>
+            <div class="pure-g roundBorder" >
+            <div class ="pure-u-3-4 centerBox">
+                <div class="centerContent">
+                    <h3>开机奖励</h3>
+                    <h4>每天使用语镜，开机并登陆服务器</h4>
+                </div>
+                <div class="vam"></div>
+            </div>
+            <div class="pure-u-1-4 centerBox">
+                <div class="centerContent">
+                    <h4>每日限2次</h4>
+                </div>
+                <div class="vam"></div>
+            </div>
+        </div>
+
+        </article>
+
+
+
+            <article class="pure-g noPaddingContent none" data-role = "page" data-pageName= "道客数读">
+                <div class="pure-u-1" id="topBg" >
+                    <div class="pure-g">
+                        <div id="changeInfo" class="icon9 jumper" data-target="详细资料"></div>
+                        <div class="pure-u-1-3 centerBox" id="levelBox">
+                            <div class="centerContent">
+                                <div id="level"></div>
+                            </div>
+                            <div class="vam"></div>
+                        </div>
+                        <div class="pure-u-2-3 centerBox" id="basicInfo">
+                            <div class="centerContent">
+                                <h3>姓名:<b>陈建天</b></h3>
+                                <h3>积分:<b>20043</b>&nbsp&nbsp&nbsp <b>ARB120</b> </h3>
+                            </div>
+                            <div class="vam"></div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="pure-g">
+                    <div class="pure-u-1-4 number">
+                        <h3><b>1234</b>km</h3>
+                        <h4>新增里程</h4>
+                    </div>
+                    <div class="pure-u-1-4 number">
+                        <h3><b>1234</b>km</h3>
+                        <h4>新增里程</h4>
+                    </div>
+                    <div class="pure-u-1-4 number">
+                        <h3><b>1234</b>km</h3>
+                        <h4>新增里程</h4>
+                    </div>
+                    <div class="pure-u-1-4 number">
+                        <h3><b>1234</b>km</h3>
+                        <h4>新增里程</h4>
+                    </div>
+                </div>
+
+                <div class="pure-g">
+                    <div class="pure-u-1-3 numberDown centerBox">
+                            <div class="centerContent">
+                                <div class="icon13"></div>
+                            </div>
+                            <div class="vam"></div>
+                    </div>
+                    <div class="pure-u-1-6 numberDown">
+                        <h3><b>28</b>次</h3>
+                        <h4>分享路况</h4>
+                    </div>
+                    <div class="pure-u-1-6 numberDown">
+                        <h3><b>12</b>次</h3>
+                        <h4>踩</h4>
+                    </div>
+                    <div class="pure-u-1-3 numberDown">
+                        <h3><b>12</b>次</h3>
+                        <h4>踩</h4>
+                    </div>
+                </div>
+                <div class="pure-g">
+                    <div class="pure-u-1-3 numberDown centerBox">
+                        <div class="centerContent">
+                            <div class="icon12"></div>
+                        </div>
+                        <div class="vam"></div>
+                    </div>
+                    <div class="pure-u-1-6 numberDown">
+                        <h3><b>28</b>次</h3>
+                        <h4>分享路况</h4>
+                    </div>
+                    <div class="pure-u-1-6 numberDown">
+                        <h3><b>12</b>次</h3>
+                        <h4>踩</h4>
+                    </div>
+                    <div class="pure-u-1-3 numberDown">
+                        <h3><b>12</b>次</h3>
+                        <h4>踩</h4>
+                    </div>
+                </div>
+
+                <div class="pure-g">
+                    <div class="pure-u-1-3 numberDown centerBox">
+                        <div class="centerContent">
+                            <div class="icon14"></div>
+                        </div>
+                        <div class="vam"></div>
+                    </div>
+                    <div class="pure-u-1-6 numberDown">
+                        <h3><b>3/5</b></h3>
+                        <h4>今日任务</h4>
+                    </div>
+                    <div class="pure-u-1-6 numberDown">
+                        <h3><b>3</b></h3>
+                        <h4>新勋章</h4>
+                    </div>
+                    <div class="pure-u-1-3 numberDown">
+                    </div>
+                </div>
+                <div class="pure-g">
+                    <div class="pure-u-1-3 numberDown centerBox">
+                        <div class="centerContent">
+                            <div id="level"></div>
+                        </div>
+                        <div class="vam"></div>
+                    </div>
+                    <div class="pure-u-2-3 numberDown">
+                        <h5>点击了解</h5>
+                        <h5>最新www.daoke.me咨询</h5>
+                    </div>
+                </div>
+            </article>
+
+
+
+        <article class="pure-g content none" data-role = "page" data-pageName= "里程时长">
+            <div class="pure-u-1">
+                <h2>历史总路况分享</h2>
+                <div class="pure-g">
+                    <div class="pure-u-1 centerBox">
+                        <div class="centerContent">
+                            <h2><b class="bigNum">10000</b>条</h2>
+                            <h4>您的暴走击败了全国<b class="smallNum">86%</b>的道客</h4>
+                            <h4>相当于绕赤道<b class="smallNum">10000</b>圈</h4>
+                        </div>
+                        <div class="vam"></div>
+                    </div>
+                </div>
+                <h2>历史总时长</h2>
+                <div class="pure-g">
+                    <div class="pure-u-1 centerBox">
+                        <div class="centerContent">
+                            <h2><b class="bigNum">10000</b>小时</h2>
+                            <h4>您击败了全国<b class="smallNum">60%</b>的道客</h4>
+                        </div>
+                        <div class="vam"></div>
+                    </div>
+                </div>
+                <div class="pure-g staticBox">
+                    <div class="pure-u-5-12 centerBox h150">
+                        <div class="centerContent">
+                            <div class="calBox">
+                                <div class="calFix upRound"><h4>星期五</h4></div>
+                                <div class="middle"><h3>19</h3></div>
+                                <div class="calFix downRound"><h4>2013年7月</h4></div>
+                            </div>
+                            <h3>今日里程时长</h3>
+                        </div>
+                        <div class="vam"></div>
+                    </div>
+                    <div class="pure-u-7-12 centerBox h150">
+                        <div class="centerContent">
+                            <h3>行驶里程<b class="colored1">13</b>条</h3>
+                            <h3>驾驶时长<b class="colored1">13</b>条</h3>
+                        </div>
+                        <div class="vam"></div>
+                    </div>
+                </div>
+                <div class="pure-g staticBox">
+                    <div class="pure-u-5-12 centerBox h150">
+                        <div class="centerContent">
+                            <div class="calBox">
+                                <div class="calFix upRound"><h4>星期五</h4></div>
+                                <div class="middle"><h3>19</h3></div>
+                                <div class="calFix downRound"><h4>2013年7月</h4></div>
+                            </div>
+                            <h3>昨日里程时长</h3>
+                        </div>
+                        <div class="vam"></div>
+                    </div>
+                    <div class="pure-u-7-12 centerBox h150">
+                        <div class="centerContent">
+                            <h3>行驶里程<b class="colored2">13</b>条</h3>
+                            <h3>驾驶时长<b class="colored2">13</b>条</h3>
+                        </div>
+                        <div class="vam"></div>
+                    </div>
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <article class="pure-g content none" data-role = "page" data-pageName= "路况贡献">
+            <div class="pure-u-1">
+                <h2>历史总路况分享</h2>
+                <div class="pure-g">
+                    <div class="pure-u-1 centerBox">
+                        <div class="centerContent">
+                            <h2><b class="bigNum">30000</b>条</h2>
+
+                            <div class="pure-g">
+                                <div class="pure-u-1 line"></div>
+                            </div>
+                            <h4>赞<b class="bigNum">1543</b>条&nbsp&nbsp&nbsp&nbsp踩<b class="bigNum">1534</b>条</h4>
+                        </div>
+                        <div class="vam"></div>
+                    </div>
+                </div>
+                <h2>被赞，被踩与总的路况分享百分比</h2>
+                <div class="pure-g">
+                    <div class="pure-u-1 centerBox">
+                        <div class="centerContent">
+                            <h2><b class="bigNum">56.6%</b></h2>
+                            <h4>您击败了全国 <b>80%</b>的用户，继续分享吧！</h4>
+                        </div>
+                        <div class="vam"></div>
+                    </div>
+                </div>
+                <div class="pure-g staticBox">
+                    <div class="pure-u-1-3 centerBox h150">
+                        <div class="centerContent">
+                            <div class="calBox">
+                                <div class="calFix upRound"><h4>星期五</h4></div>
+                                <div class="middle"><h3>19</h3></div>
+                                <div class="calFix downRound"><h4>2013年7月</h4></div>
+                            </div>
+                            <h3>最新分享</h3>
+                        </div>
+                        <div class="vam"></div>
+                    </div>
+                    <div class="pure-u-1-4 centerBox h150">
+                        <div class="centerContent">
+                            <h3><b class="colored1 bigNumber">28</b>条</h3>
+                        </div>
+                        <div class="vam"></div>
+                    </div>
+                    <div class="pure-u-5-12 centerBox h150">
+                        <div class="centerContent">
+                            <h3>赞<b class="colored1">13</b>条</h3>
+                            <h3>踩<b class="colored1">13</b>条</h3>
+                        </div>
+                        <div class="vam"></div>
+                    </div>
+                </div>
+                <div class="pure-g staticBox">
+                    <div class="pure-u-1-3 centerBox h150">
+                        <div class="centerContent">
+                            <div class="calBox">
+                                <div class="calFix upRound"><h4>星期五</h4></div>
+                                <div class="middle"><h3>19</h3></div>
+                                <div class="calFix downRound"><h4>2013年7月</h4></div>
+                            </div>
+                            <h3>最新分享</h3>
+                        </div>
+                        <div class="vam"></div>
+                    </div>
+                    <div class="pure-u-1-4 centerBox h150">
+                        <div class="centerContent">
+                            <h3><b class="colored1 bigNumber">28</b>条</h3>
+                        </div>
+                        <div class="vam"></div>
+                    </div>
+                    <div class="pure-u-5-12 centerBox h150">
+                        <div class="centerContent">
+                            <h3>赞<b class="colored2">13</b>条</h3>
+                            <h3>踩<b class="colored2">13</b>条</h3>
+                        </div>
+                        <div class="vam"></div>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </article>
+
+
+
+    </section>
+<!--  -->
+    <footer class="pure-g footer" id="footer">
+
+        <div class="pure-u-1-5">
+            <div class="footerIconBox centerBox activeButton jumper" data-target="里程时长">
+                <div class="centerContent">
+                    <div class="icon4"></div>
+                    <a>里程时长</a>
+                </div>
+                <div class="vam"></div>
+            </div>
+        </div>
+        <div class="pure-u-1-5">
+            <div class="footerIconBox centerBox activeButton jumper" data-target = "积分等级">
+                <div class="centerContent">
+                    <div class="icon5"></div>
+                    <a>积分等级</a>
+                </div>
+                <div class="vam"></div>
+            </div>
+        </div>
+        <div class="pure-u-1-5">
+            <div class="footerIconBox centerBox active jumper activeButton"  data-target="道客数读">
+                <div class="centerContent">
+                    <div class="icon3"></div>
+                    <a>主页</a>
+                </div>
+                <div class="vam"></div>
+            </div>
+        </div>
+        <div class="pure-u-1-5">
+            <div class="footerIconBox centerBox jumper activeButton" data-target="我的勋章">
+                <div class="centerContent">
+                    <div class="icon1"></div>
+                    <a>我的勋章</a>
+                </div>
+                <div class="vam"></div>
+            </div>
+        </div>
+        <div class="pure-u-1-5">
+            <div class="footerIconBox centerBox activeButton jumper" data-target="路况贡献">
+                <div class="centerContent">
+                    <div class="icon2"></div>
+                    <a>路况贡献</a>
+                </div>
+                <div class="vam"></div>
+            </div>
+        </div>
+
+    </footer>
+<!--  -->
+    <!--
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript">
+    app.initialize();
+    </script>!-->
+        <script type="text/javascript" src="js/md5.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+        <script type="text/javascript" src="js/juicer.js"></script>
+
+</body>
+
+</html>

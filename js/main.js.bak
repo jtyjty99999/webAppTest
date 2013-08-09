@@ -1,0 +1,65 @@
+/**
+ * Created with JetBrains WebStorm.
+ * User: Tianyi(99)
+ * Date: 13-8-1
+ * Time: 下午8:39
+ * To change this template use File | Settings | File Templates.
+ */
+alert(window.screen.availHeight)
+var boxes=document.querySelectorAll('.activeButton');
+var l = boxes.length,i=0;
+
+for(;i<l;i++){
+
+    boxes[i].addEventListener('touchstart',function(){
+    },false);//hack来样式
+
+}
+var jumpers=document.querySelectorAll('.jumper');
+var len = jumpers.length,j=0;
+
+for(;j<len;j++){
+
+        jumpers[j].addEventListener('touchend',function(){
+            var title = $(this).attr('data-target');
+                jumpAndRender(title);//修复点击"闪一下"的bug(没渲染完毕?)
+            return false
+        },false);
+
+    jumpers[j].addEventListener('click',function(){
+        var title = $(this).attr('data-target');
+        jumpAndRender(title);//修复点击"闪一下"的bug(没渲染完毕?)
+        return false
+    },false);
+
+}
+
+var showed='道客数读',prev=[];
+function jumpAndRender(pageName,override){
+
+    var override = override || true;//若传入false，比如后退时，不需要计入访问队列。
+    document.querySelector('article[data-pageName='+showed+']').style.display='none';
+    document.querySelector('article[data-pageName='+pageName+']').style.display='block';
+    $('#title').text(pageName);
+    if(override){
+        var k=0,l=prev.length;
+        for(;k<l;k++){
+            if(prev[k]==showed){
+                prev.splice(k,1)
+                break
+            };
+        }
+        prev.push(showed);//维护一个访问记录队列，访问时计入队列。若队列中存在则不进入队列
+    }
+
+    showed = pageName;
+}
+document.querySelector('.leftBtn').addEventListener('touchend',function(){
+    prev.length!==0&&setTimeout(function(){
+        jumpAndRender(prev[prev.length-1],false);
+        prev.pop();
+    },0)
+},false);
+window.onload = function(){
+    document.querySelector('article[data-pageName='+showed+']').style.display='block'
+}
