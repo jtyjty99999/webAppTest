@@ -85,10 +85,10 @@ $('#loginButton').on(activate,function(){
             },function(data){
                 if(data.ERRORCODE==0){
                     var mir  = data.RESULT.mirrtalkNumber;
-                    location.href= 'index.html?mir='+mir;
+                    localStorage.setItem('mirrtalkNumber', mir);
+                    location.href='index.html';
                 }else{
                     alert('用户名或密码错误，请重新登录')
-
                 }
             },function(){}
     )
